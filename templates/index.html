@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPMG Desk Remote Check In</title>
+</head>
+<body>
+    <h1>KPMG Desk QR Code</h1>
+    <h3>For Remote Check-In</h3>
+
+    <form method="POST">
+        <label for="data">Enter Desk Number:</label>
+        <br>
+        <input type="text" id="data" name="data" required>
+        <br>
+        <button type="submit">Generate QR Code</button>
+    </form>
+
+    <!-- Display any flashed messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <br>
+                <div class="{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if qr_image_path %}
+            <br>
+            <img src="{{ qr_image_path }}" alt="QR Code">
+            <br>
+            <label style="font-weight: bold; margin-left: 25px;">Desk {{ desk_number }}</label>
+    {% endif %}
+</body>
+</html>
