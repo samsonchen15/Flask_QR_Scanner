@@ -1,0 +1,30 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+    width: 700px;
+    border: 1px solid black;
+}
+
+.Box{
+    padding: 10px;
+    background-color:azure;
+}
+
+.qrCode {
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    width: 170px;
+    border: 2px solid grey;
+    background-color: lightblue;
+    padding-top: 10px;
+}
+
+.wrongInput{
+    font-weight: bold;
+    color: red;
+}
+
+.boldText{
+    font-weight: bold;
+}

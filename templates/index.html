@@ -3,35 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KPMG Desk Remote Check In</title>
+    <link rel="stylesheet" href="static/style.css">
+    <title>Desk QR Code Generator</title>
 </head>
 <body>
-    <h1>KPMG Desk QR Code</h1>
-    <h3>For Remote Check-In</h3>
+    <div class = "Box">
+    <h2>Generate Desk QR Code</h2>
+    <h3>For Remote Check-In &#128241;</h3>
+
+    <label>
+        Are you running late for work and worried about losing your reserved desk? &#128549;<br>
+        With this QR Code Generator, you can easily generate your Desk QR Code for your desk! &#128525; <br> 
+        You can now check in remotely — whether you're at home, on the train, or anywhere else. &#127939; <br>
+        Never worry about missing your desk booking again!! &#128522; <br>
+    </label>
+
+    <br>
 
     <form method="POST">
-        <label for="data">Enter Desk Number:</label>
+        <label for="data" class="boldText">Enter Desk Number: &#x2B07;&#xFE0F;</label>
         <br>
-        <input type="text" id="data" name="data" required>
+        <input type="text" id="data" name="data" placeholder=" 6-Digit Number" required>
         <br>
-        <button type="submit">Generate QR Code</button>
+        <button type="submit">Generate Desk QR Code</button>
     </form>
+
+    <br>
 
     <!-- Display any flashed messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-            {% for category, message in messages %}
-                <br>
-                <div class="{{ category }}">{{ message }}</div>
-            {% endfor %}
+                <div class = "wrongInput">Don't be an idiot! &#128531; Your desk number should only have 6 digits &#128530; </div><br>
         {% endif %}
     {% endwith %}
 
     {% if qr_image_path %}
-            <br>
-            <img src="{{ qr_image_path }}" alt="QR Code">
-            <br>
-            <label style="font-weight: bold; margin-left: 25px;">Desk {{ desk_number }}</label>
+            <div class = "qrCode">
+                <img src="{{ qr_image_path }}" alt="QR Code">
+                <br>
+                <label>Desk {{ desk_number }}</label>
+            </div><br>
     {% endif %}
+
+    <label class = 'boldText'>Source Code: &#x1F9D1;&#x200D;&#x1F4BB;</label><br>
+    <a href = "https://github.com/samsonchen15/Flask_QR_Scanner">GitHub Repository</a>
+    </div>
 </body>
 </html>
