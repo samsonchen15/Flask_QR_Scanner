@@ -20,7 +20,7 @@ def index():
             return redirect(url_for("index"))
 
         qr = qrcode.QRCode(version=1, box_size=5, border=1)
-        code = f'{{"roomAltld": "AST2-D{data}"}}'
+        code = f'{{"roomAltId": "AST2-D{data}"}}'
         qr.add_data(code)
         qr.make(fit=True)
 
